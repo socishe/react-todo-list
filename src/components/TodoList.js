@@ -36,7 +36,7 @@ class TodoList extends Component {
         })
         return (
             <div className="TodoList">
-                <h1>Todo List</h1>
+                <h1>Todo List <span>Graggable TODO</span></h1>
                 <NewTodoForm createTodo ={this.create}/>
                 <ul>
                     {todos}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import uuid from "uuid/v4";
 import "./NewTodoForm.css";
 
 class NewTodoForm extends Component {
@@ -17,7 +16,7 @@ class NewTodoForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor='task'>New Todo</label>
+        <label htmlFor='task'>Add Todo item</label>
         <input
           type='text'
           placeholder='New Todo'

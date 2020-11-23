@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './Todo.css'
 class Todo extends Component {
   state={
       isEditing: false,
@@ -27,7 +28,7 @@ class Todo extends Component {
   let result;
   if(this.state.isEditing){
       result =(
-          <div >
+          <div className="Todo" >
               <form onSubmit={this.handleUpdate}>
                   <input type='text'value={this.state.task} onChange={this.handleChange} name="task" />
                   <button>Save</button>
@@ -36,10 +37,11 @@ class Todo extends Component {
       )
   }else{
       result = (
-        <div >
+        <div className="Todo" >
+          <li className="Todo-task">{this.props.task}</li>
         <button onClick={this.toggleForm}>Edit</button>
         <button onClick={this.handleRemove}>X</button>
-        <li>{this.props.task}</li>
+        
     </div>
       )
   }
