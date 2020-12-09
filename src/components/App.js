@@ -1,5 +1,6 @@
 import React from "react";
 import NewTodoForm from "./NewTodoForm";
+import '../App.css'
 
 
 import List from "./List";
