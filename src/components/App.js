@@ -10,7 +10,6 @@ class App extends React.Component {
     items: []
   };
 
-
   insertItem = (id, idToInsert, after) => {
     if (id !== idToInsert) {
       let removed = null;
@@ -50,23 +49,33 @@ class App extends React.Component {
     })
 }
  remove =(id)=>{
-   console.log(id);
   this.setState({
      items:this.state.items.filter(todo => todo.id !==id) 
   })
 }
-
+handleToggle=(evt)=> {
+  this.props.toggleTodo(this.props.id);
+}
+update(id, updatedTask) {
+  const updatedTodos = this.state.items.map(todo => {
+    if (todo.id === id) {
+      return { ...todo, name: updatedTask };
+    }
+    return todo;
+  });
+  this.setState({ items: updatedTodos });
+}
   render() {
     return (
       <div className="App">
         <h1> React Drag & Drop Todo App </h1>
         <NewTodoForm createTodo ={this.create} />
-        {console.log(this.state.items.id)}
         <List 
         insertItem={this.insertItem}
-        
+        id={this.state.items.name}
         removeTodo={this.remove}
         items={this.state.items} 
+        updateTodo={this.update}
         />
       </div>
     );

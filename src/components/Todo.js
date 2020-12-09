@@ -3,7 +3,7 @@ import './Todo.css'
 class Todo extends Component {
   state={
       isEditing: false,
-      task: this.props.task
+      // task: this.props.task
   }
   handleRemove=()=> {
     this.props.removeTodo(this.props.id);
@@ -13,7 +13,7 @@ class Todo extends Component {
   }
   handleUpdate=(evt)=> {
     evt.preventDefault();
-    this.props.updateTodo(this.props.id, this.state.task);
+    this.props.updateTodo(this.props.id, this.state.name);
     this.setState({ isEditing: false });
   }
   handleChange=(evt)=> {
