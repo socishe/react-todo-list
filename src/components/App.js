@@ -56,7 +56,7 @@ class App extends React.Component {
 handleToggle=(evt)=> {
   this.props.toggleTodo(this.props.id);
 }
-update(id, updatedTask) {
+update =(id, updatedTask) =>{
   const updatedTodos = this.state.items.map(todo => {
     if (todo.id === id) {
       return { ...todo, name: updatedTask };

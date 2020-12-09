@@ -19,7 +19,8 @@ class List extends Component {
   }
   handleUpdate=(evt)=> {
     evt.preventDefault();
-    this.props.updateTodo(this.props.id, this.state.task);
+    console.log(this.props.id)
+    this.props.updateTodo(this.props.id, this.state.name);
     this.setState({ isEditing: false });
   }
   render() {
