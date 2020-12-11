@@ -1,13 +1,12 @@
 import React from "react";
 import NewTodoForm from "./NewTodoForm";
-import '../App.css'
-
+import "../App.css";
 
 import List from "./List";
 
 class App extends React.Component {
   state = {
-    items: []
+    items: [],
   };
 
   insertItem = (id, idToInsert, after) => {
@@ -20,6 +19,7 @@ class App extends React.Component {
           removed = i;
           return arr;
         }
+
         if (i.id.toString() === id) {
           if (after) {
             arr.push(i);
@@ -33,49 +33,59 @@ class App extends React.Component {
         } else {
           arr.push(i);
         }
+
         return arr;
       }, []);
 
       newArr[removedId] = removed;
 
       this.setState({
-        items: newArr
+        items: newArr,
       });
     }
   };
-  create =(newTodo)=>{
+
+  create = (newTodo) => {
     this.setState({
-        items: [...this.state.items, newTodo]
-    })
-}
- remove =(id)=>{
-  this.setState({
-     items:this.state.items.filter(todo => todo.id !==id) 
-  })
-}
-handleToggle=(evt)=> {
-  this.props.toggleTodo(this.props.id);
-}
-update =(id, updatedTask) =>{
-  const updatedTodos = this.state.items.map(todo => {
-    if (todo.id === id) {
-      return { ...todo, name: updatedTask };
-    }
-    return todo;
-  });
-  this.setState({ items: updatedTodos });
-}
+      items: [...this.state.items, newTodo],
+    });
+  };
+
+  remove = (id) => {
+    this.setState({
+      items: this.state.items.filter((todo) => todo.id !== id),
+    });
+  };
+
+  handleToggle = (evt) => {
+    this.props.toggleTodo(this.props.id);
+  };
+
+  update = (id, updatedTask) => {
+
+    const updatedTodos = this.state.items.map((todo) => {
+
+      if (todo.id === id) {
+        return { ...todo, name: updatedTask };
+      }
+      
+      return todo;
+    });
+
+    this.setState({ items: updatedTodos });
+  };
+
   render() {
     return (
       <div className="App">
         <h1> React Drag & Drop Todo App </h1>
-        <NewTodoForm createTodo ={this.create} />
-        <List 
-        insertItem={this.insertItem}
-        id={this.state.items.name}
-        removeTodo={this.remove}
-        items={this.state.items} 
-        updateTodo={this.update}
+        <NewTodoForm createTodo={this.create} />
+        <List
+          insertItem={this.insertItem}
+          id={this.state.items.name}
+          removeTodo={this.remove}
+          items={this.state.items}
+          updateTodo={this.update}
         />
       </div>
     );
