@@ -1,14 +1,44 @@
+.list {
+  max-width: 490px;
+  margin: auto;
+  padding-top: 17px;
+  border-top: 1px solid #b0b0b0;
+  margin-top: 21px;
+}
+
+.list>div {
+  margin: 10px 0 25px;
+  position: relative;
+}
+
+.list>div:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #6d6d6d;
+}
+
 .item {
-  margin: 10px auto;
   padding: 20px;
   border-radius: 10px;
   font-weight: bold;
   background-color: black;
   color: white;
+  text-align: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 31px;
 }
 
 button {
-  margin-left: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px;
 }
 
 .item:hover {
@@ -17,4 +47,38 @@ button {
 
 .item:active {
   background-color: lightslategray;
+}
+
+.item>div {
+  position: absolute;
+  right: 0;
+  padding-right: 18px;
+  display: flex;
+}
+
+.item>div button:first-child {
+  margin-right: 15px;
+}
+
+.remove {
+  background-color: #f44242;
+  color: #fff;
+}
+
+.Todo form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Todo input {
+  height: 34px;
+  width: 100%;
+  padding: 1px 17px;
+}
+
+.Todo button {
+  background-color: #42b242;
+  color: #fff;
+  padding: 11px 23px;
 }

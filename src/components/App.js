@@ -62,13 +62,11 @@ class App extends React.Component {
   };
 
   update = (id, updatedTask) => {
-
     const updatedTodos = this.state.items.map((todo) => {
-
       if (todo.id === id) {
         return { ...todo, name: updatedTask };
       }
-      
+
       return todo;
     });
 

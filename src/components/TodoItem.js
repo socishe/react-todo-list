@@ -50,6 +50,7 @@ const TodoItem = ({ item, onRemove, onUpdate, onDragMove }) => {
   const handleUpdate = (evt) => {
     evt.preventDefault();
 
+    console.log(item.id, inputValue);
     onUpdate(item.id, inputValue);
 
     setIsEditing(false);
@@ -59,15 +60,17 @@ const TodoItem = ({ item, onRemove, onUpdate, onDragMove }) => {
     <>
       {isEditing && (
         <div className="Todo">
-          <form onSubmit={handleUpdate}>
-            <input
-              type="text"
-              defaultValue={item ? item.name : ""}
-              onChange={handleChange}
-              name="name"
-            />
-            <button type="submit">Save</button>
-          </form>
+          <div className="item">
+            <form onSubmit={handleUpdate}>
+              <input
+                type="text"
+                defaultValue={item ? item.name : ""}
+                onChange={handleChange}
+                name="name"
+              />
+              <button type="submit">Save</button>
+            </form>
+          </div>
         </div>
       )}
 
@@ -85,12 +88,15 @@ const TodoItem = ({ item, onRemove, onUpdate, onDragMove }) => {
             event.dataTransfer.setData("text/html", dragging);
           }}
           onDrop={onDrop}
-          className="list"
         >
           <div draggable className="item" id={item.id}>
             {item.name}
-            <button onClick={toggleForm}> Edit</button>
-            <button onClick={() => onRemove(item.id)}>X</button>
+            <div>
+              <button onClick={toggleForm}> Edit</button>
+              <button className="remove" onClick={() => onRemove(item.id)}>
+                X
+              </button>
+            </div>
           </div>
         </div>
       )}
