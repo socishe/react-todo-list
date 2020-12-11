@@ -50,7 +50,6 @@ const TodoItem = ({ item, onRemove, onUpdate, onDragMove }) => {
   const handleUpdate = (evt) => {
     evt.preventDefault();
 
-    console.log(item.id, inputValue);
     onUpdate(item.id, inputValue);
 
     setIsEditing(false);

@@ -77,10 +77,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1> React Drag & Drop Todo App </h1>
-        <NewTodoForm createTodo={this.create} />
+        <NewTodoForm items={this.state.items} createTodo={this.create} />
         <List
           insertItem={this.insertItem}
-          id={this.state.items.name}
           removeTodo={this.remove}
           items={this.state.items}
           updateTodo={this.update}

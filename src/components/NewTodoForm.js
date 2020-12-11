@@ -12,11 +12,13 @@ class NewTodoForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     this.props.createTodo({
       ...this.state,
-      id: this.state.name,
+      id: `${this.state.name}_${this.props.items.length}`,
       completed: false,
     });
+
     this.setState({ name: "" });
   };
 
